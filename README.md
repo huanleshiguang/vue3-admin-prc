@@ -16,37 +16,3 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
    1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
    2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-
-
-
-**配置文件介绍**
-1. package.json
-
-  "scripts": {
-    "dev": "vite --open",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
-  },
-  --open 表示项目启动后，自动打开浏览器
-
-2. eslint配置
- .eslintrc文件进行配置
-2.1 prettier
- 什么是prettier
-   prettier和eslint相辅相成
-   一个检测语法问题，一个检测格式问题，
-   一个注重语法质量，一个注重代码美观
-   eslit检测完毕，prettier接着干
-
-{
-  "singleQuote": true, // 单引号
-  "semi": false, // 不要分号
-  "bracketSpacing": true,
-  "htmlWhitespaceSensitivity": "ignore",
-  "endOfLine": "auto",
-  "trailingComma": "all",
-  "tabWidth": 2
-}
-
-3. 
