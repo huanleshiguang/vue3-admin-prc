@@ -76,3 +76,17 @@ module.exports = {
 ```
 npx husky add .husky / commit-msg
 ```
+
+在新增的 husky 文件下添加命令：
+
+```
+pnpm commitlint
+```
+
+![image-20230619220840675](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230619220840675.png)
+
+再执行 git commit -m ” 不能随便瞎写了“,必须要有关键字
+
+![image-20230619221003271](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230619221003271.png)
+
+![image-20230619220954752](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230619220954752.png)
