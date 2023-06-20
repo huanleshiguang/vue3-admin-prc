@@ -90,3 +90,138 @@ pnpm commitlint
 ![image-20230619221003271](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230619221003271.png)
 
 ![image-20230619220954752](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230619220954752.png)
+
+## 6. 强制使用pnpm包管理工具
+
+统一包管理工具，因为日不同包管理工具下载同一个依赖，可能版本不一样
+
+在根目录下新建scripts文件夹，新建preinstall.js文件
+
+![image-20230619222015828](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230619222015828.png)
+
+然后再package.json中添加命令：
+
+```
+"preinstall": "node ./scripts/preinstall.js"
+```
+
+这样，当我们install的时候会触发preinstall脚本
+
+## 7. src别名的配置
+
+###  1. vite.config.ts文件配置
+
+![image-20230620204034683](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620204034683.png)
+
+###  2. tsconfig.json中的配置
+
+![image-20230620205019126](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620205019126.png)
+
+## 7.项目环境变量配置
+
+项目开发过程中，至少会经历开发环境，测试环境和生产环境（即正式环境）三个阶段，不同阶段请求的状态（如接口地址等）不尽相同，手动接环接口地址繁琐且易出错。
+
+![image-20230620205538297](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620205538297.png)
+
+
+
+1. 
+
+```
+.env.development
+.env.production
+.env.test
+```
+
+![image-20230620214138752](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620214138752.png)
+
+2. 配置运行命令:package.json
+
+![image-20230620214352179](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620214352179.png)
+
+3. 获取
+
+```js
+console.log(import.meta.env);
+```
+
+## 8. SVG图标配置
+
+### 1.安装SVG依赖插件
+
+```
+pnpm install vite-plugin-svg-icons -D
+```
+
+### 2. 在vite.config.ts中配置插件
+
+```javascript
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+// https://vitejs.dev/config/
+export default ({ command, mode }: ConfigEnv): UserConfigExport => {
+  // 获取各种环境下对应的变量
+  let env = loadEnv(mode, process.cwd())
+  return {
+    base: './',
+    plugins: [
+      VueSetupExtend(),
+      DefineOptions(),
+      vue(),
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
+      createSvgIconsPlugin({
+        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+        symbolId: 'icon-[dir]-[name]',
+      }),
+      viteMockServe({
+        localEnabled: command === 'serve',
+      }),
+    ],
+    resolve: { alias: { '@': path.resolve('./src') } },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          javascriptEnabled: true,
+          additionalData: '@import "./src/styles/variable.scss";',
+        },
+      },
+    },
+    // 代理跨域
+    server: {
+      proxy: {
+        [env.VITE_APP_BASE_API]: {
+          target: env.VITE_SERVE,
+          // 需要代理跨域
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
+      },
+    },
+  }
+}
+```
+
+### 3.入口文件中导入(main.ts)
+
+```javascript
+// svg插件需要配置代码
+import 'virtual:svg-icons-register'
+```
+
+### 4.使用
+
+4.1 创建一个phone.svg文件，复制它的svg代码到文件中
+
+![image-20230620220044932](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620220044932.png)
+
+4.2 组件中使用
+
+外层包一个svg，内层加上use标签
+
+![image-20230620220213372](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620220213372.png)
+
+**4.3 封装成一个组件直接使用（推荐**）
