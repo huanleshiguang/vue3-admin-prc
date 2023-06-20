@@ -11,8 +11,8 @@ export default {
   install(app) {
     // console.log('components/intex.ts install()', app)
     // 注册项目全部的全局组件
-    Object.keys(allGlobalComponent).forEach(item => {
+    Object.keys(allGlobalComponent).forEach((item) => {
       app.component(item, allGlobalComponent[item])
     })
-  }
+  },
 }

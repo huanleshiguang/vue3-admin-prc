@@ -10,16 +10,14 @@ import 'element-plus/dist/index.css'
 import 'virtual:svg-icons-register'
 //获取应用实例对象
 
-
 const app = createApp(App)
-
 
 //安装element-plus插件
 app.use(ElementPlus, {
-  locale:zhcn //设置国际化
+  locale: zhcn, //设置国际化
 })
 
-console.log(import.meta.env);
+console.log(import.meta.env)
 // import SvgIcon from '@/components/SvgIcon/index.vue'
 // app.component('SvgIcon',SvgIcon)
 // 引入自定义插件对象：注册整个项目的全局组件

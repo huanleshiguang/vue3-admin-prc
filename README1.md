@@ -91,29 +91,31 @@ pnpm commitlint
 
 ![image-20230619220954752](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230619220954752.png)
 
-## 6. 强制使用pnpm包管理工具
+![image-20230620224454953](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620224454953.png)
+
+## 6. 强制使用 pnpm 包管理工具
 
 统一包管理工具，因为日不同包管理工具下载同一个依赖，可能版本不一样
 
-在根目录下新建scripts文件夹，新建preinstall.js文件
+在根目录下新建 scripts 文件夹，新建 preinstall.js 文件
 
 ![image-20230619222015828](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230619222015828.png)
 
-然后再package.json中添加命令：
+然后再 package.json 中添加命令：
 
 ```
 "preinstall": "node ./scripts/preinstall.js"
 ```
 
-这样，当我们install的时候会触发preinstall脚本
+这样，当我们 install 的时候会触发 preinstall 脚本
 
-## 7. src别名的配置
+## 7. src 别名的配置
 
-###  1. vite.config.ts文件配置
+### 1. vite.config.ts 文件配置
 
 ![image-20230620204034683](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620204034683.png)
 
-###  2. tsconfig.json中的配置
+### 2. tsconfig.json 中的配置
 
 ![image-20230620205019126](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620205019126.png)
 
@@ -123,9 +125,7 @@ pnpm commitlint
 
 ![image-20230620205538297](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620205538297.png)
 
-
-
-1. 
+1.
 
 ```
 .env.development
@@ -142,18 +142,18 @@ pnpm commitlint
 3. 获取
 
 ```js
-console.log(import.meta.env);
+console.log(import.meta.env)
 ```
 
-## 8. SVG图标配置
+## 8. SVG 图标配置
 
-### 1.安装SVG依赖插件
+### 1.安装 SVG 依赖插件
 
 ```
 pnpm install vite-plugin-svg-icons -D
 ```
 
-### 2. 在vite.config.ts中配置插件
+### 2. 在 vite.config.ts 中配置插件
 
 ```javascript
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
@@ -214,13 +214,13 @@ import 'virtual:svg-icons-register'
 
 ### 4.使用
 
-4.1 创建一个phone.svg文件，复制它的svg代码到文件中
+4.1 创建一个 phone.svg 文件，复制它的 svg 代码到文件中
 
 ![image-20230620220044932](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620220044932.png)
 
 4.2 组件中使用
 
-外层包一个svg，内层加上use标签
+外层包一个 svg，内层加上 use 标签
 
 ![image-20230620220213372](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620220213372.png)
 

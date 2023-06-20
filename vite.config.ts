@@ -5,7 +5,8 @@ import path from 'path'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(),
+  plugins: [
+    vue(),
     createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
       symbolId: 'icon-[dir]-[name]',
@@ -13,7 +14,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve("./src") // 相对路径别名配置，使用@替换src
-    }
-  }
+      '@': path.resolve('./src'), // 相对路径别名配置，使用@替换src
+    },
+  },
 })

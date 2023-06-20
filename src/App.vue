@@ -7,7 +7,6 @@
 
 <script lang="ts" setup>
 import Test from '@/components/Test.vue'
-
 </script>
 
 <style scoped lang="scss"></style>
