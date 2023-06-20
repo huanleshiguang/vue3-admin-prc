@@ -225,3 +225,9 @@ import 'virtual:svg-icons-register'
 ![image-20230620220213372](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620220213372.png)
 
 **4.3 封装成一个组件直接使用（推荐**）
+
+![image-20230620225526168](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620225526168.png)
+
+全局注册后进行使用
+
+![image-20230620225542075](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620225542075.png)
