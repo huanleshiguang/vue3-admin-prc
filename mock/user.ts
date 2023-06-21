@@ -34,8 +34,7 @@ function createUserList() {
   ]
 }
 
-
-// 对外暴露一个数组 
+// 对外暴露一个数组
 // 里面包含两个接口 1.登录接口 2.获取用户信息接口
 export default [
   // 用户登录接口

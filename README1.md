@@ -232,9 +232,9 @@ import 'virtual:svg-icons-register'
 
 ![image-20230620225542075](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620225542075.png)
 
-## 9.集成scss
+## 9.集成 scss
 
-1. npm.js.com 引入rest.scss， 将其放入styles下面的reset.scss文件中
+1. npm.js.com 引入 rest.scss， 将其放入 styles 下面的 reset.scss 文件中
 
 ![image-20230621215115685](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230621215115685.png)
 

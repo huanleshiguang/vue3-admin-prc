@@ -10,9 +10,9 @@ import Test from '@/components/Test.vue'
 </script>
 
 <style scoped lang="scss">
-  .box {
-    h1 {
-      color: $base-color;
-    }
+.box {
+  h1 {
+    color: $base-color;
   }
+}
 </style>
