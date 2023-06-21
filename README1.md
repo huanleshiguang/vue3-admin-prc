@@ -232,3 +232,18 @@ import 'virtual:svg-icons-register'
 
 ![image-20230620225542075](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230620225542075.png)
 
+## 9.集成scss
+
+1. npm.js.com 引入rest.scss， 将其放入styles下面的reset.scss文件中
+
+![image-20230621215115685](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230621215115685.png)
+
+2. 引入 模板全局样式
+
+   ```css
+   import '@/styles/index.scss'
+   ```
+
+3. 项目中引入全局变量（否则其他组件依然无法访问$color）
+
+![image-20230621215700321](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20230621215700321.png)

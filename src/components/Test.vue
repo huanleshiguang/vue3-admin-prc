@@ -11,4 +11,11 @@
 // import SvgIcon from '@/components/SvgIcon/index.vue'
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.box {
+  h1 {
+    color: red;
+  }
+}
+
+</style>
