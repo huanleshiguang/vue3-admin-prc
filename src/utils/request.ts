@@ -75,7 +75,6 @@ request.interceptors.response.use(
 
 export default request
 
-
 /* 
 
 new Promise((resolve, reject) => {
