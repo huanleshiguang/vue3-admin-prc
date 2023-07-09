@@ -7,8 +7,13 @@
  */
 // 二次封装axios
 import axios from 'axios'
+
+/* 
+ error: Module '"element-plus"' has no exported member 'ElMessage'
+ solution: ts配置文件中将 "moduleResolution": "bundler" 改为  "moduleResolution": "node"
+*/
 import { ElMessage } from 'element-plus'
-import useUserStore from '@/store/modules/user'
+// import useUserStore from '@/store/modules/user'
 let request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
   timeout: 5000,
@@ -17,11 +22,11 @@ let request = axios.create({
 request.interceptors.request.use(
   //config配置对象有一个header属性请求头，经常给服务端携带公共参数
   (config) => {
-    let userStore = useUserStore()
+    // let userStore = useUserStore()
 
-    if (userStore.token) {
-      config.headers.token = userStore.token
-    }
+    // if (userStore.token) {
+    //   config.headers.token = userStore.token
+    // }
 
     return config
   },
@@ -72,7 +77,7 @@ request.interceptors.response.use(
     return Promise.reject(error)
   },
 )
-
+console.log(request,'request');
 export default request
 
 /* 
