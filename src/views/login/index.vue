@@ -16,17 +16,34 @@
           <h1>Vue-Admin</h1>
           <el-form :model="loginForm" :rules="rules" ref="loginForms">
             <el-form-item prop="username">
-              <el-input :prefix-icon="User" v-model="loginForm.username" clearable placeholder="Username" size="large">
-              </el-input>
+              <el-input
+                :prefix-icon="User"
+                v-model="loginForm.username"
+                clearable
+                placeholder="Username"
+                size="large"
+              ></el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input type="password" :prefix-icon="Lock" show-password v-model="loginForm.password" size="large"
-                placeholder="Password" clearable>
-              </el-input>
+              <el-input
+                type="password"
+                :prefix-icon="Lock"
+                show-password
+                v-model="loginForm.password"
+                size="large"
+                placeholder="Password"
+                clearable
+              ></el-input>
             </el-form-item>
           </el-form>
           <el-form-item>
-            <el-button :loading="loading" class="login_btn" type="primary" size="default" @click="login">
+            <el-button
+              :loading="loading"
+              class="login_btn"
+              type="primary"
+              size="default"
+              @click="login"
+            >
               登录
             </el-button>
           </el-form-item>
@@ -37,8 +54,7 @@
 </template>
 
 <script setup lang="ts">
-
-import { Ref, coreactivemputed,reactive,ref } from 'vue'
+import { Ref, coreactivemputed, reactive, ref } from 'vue'
 import { User, Lock, Warning } from '@element-plus/icons-vue'
 import useUserStore from '@/store/modules/user'
 import { useRouter } from 'vue-router'
@@ -76,29 +92,26 @@ let useStore = useUserStore()
 const login = async () => {
   try {
     // 保证登录成功
-    loading.value = true;
-    await useStore.userLogin(loginForm);
+    loading.value = true
+    await useStore.userLogin(loginForm)
     //登录成功，通过编程式导航展示首页
-    $router.push('/');
+    $router.push('/')
     //登录成功的提示信息
     ElNotification({
       type: 'success',
-      message: '登录成功'
+      message: '登录成功',
     })
-    loading.value = false;
+    loading.value = false
   } catch (error) {
     //登录失败加载效果消失
-    loading.value = false;
+    loading.value = false
     // 登录失败的提示信息
     ElNotification({
       type: 'error',
-      message: (error as Error).message
+      message: (error as Error).message,
     })
   }
-
-
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -142,4 +155,3 @@ const login = async () => {
   padding: 0;
 }
 </style>
-

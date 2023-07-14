@@ -1,6 +1,6 @@
 /*
- * @Descripttion: 
- * @version: 
+ * @Descripttion:
+ * @version:
  * @Author: Zhou Hao
  * @Date: 2023-07-09 13:51:15
  * @LastEditors: Zhou Hao
@@ -19,9 +19,9 @@ let router = createRouter({
   scrollBehavior() {
     return {
       left: 0,
-      top: 0
+      top: 0,
     }
-  }
+  },
 })
 
 export default router
