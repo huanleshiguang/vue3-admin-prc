@@ -77,7 +77,7 @@ request.interceptors.response.use(
     return Promise.reject(error)
   },
 )
-console.log(request,'request');
+console.log(request, 'request')
 export default request
 
 /* 
