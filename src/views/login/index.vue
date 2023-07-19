@@ -4,7 +4,7 @@
  * @Author: Zhou Hao
  * @Date: 2023-07-09 13:47:43
  * @LastEditors: ZhouHao
- * @LastEditTime: 2023-07-14 23:17:23
+ * @LastEditTime: 2023-07-19 22:03:21
 -->
 
 <template>
@@ -16,34 +16,16 @@
           <h1>Vue-Admin</h1>
           <el-form :model="loginForm" :rules="rules" ref="loginForms">
             <el-form-item prop="username">
-              <el-input
-                :prefix-icon="User"
-                v-model="loginForm.username"
-                clearable
-                placeholder="Username"
-                size="large"
-              ></el-input>
+              <el-input :prefix-icon="User" v-model="loginForm.username" clearable placeholder="Username"
+                size="large"></el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input
-                type="password"
-                :prefix-icon="Lock"
-                show-password
-                v-model="loginForm.password"
-                size="large"
-                placeholder="Password"
-                clearable
-              ></el-input>
+              <el-input type="password" :prefix-icon="Lock" show-password v-model="loginForm.password" size="large"
+                placeholder="Password" clearable></el-input>
             </el-form-item>
           </el-form>
           <el-form-item>
-            <el-button
-              :loading="loading"
-              class="login_btn"
-              type="primary"
-              size="default"
-              @click="login"
-            >
+            <el-button :loading="loading" class="login_btn" type="primary" size="default" @click="login">
               登录
             </el-button>
           </el-form-item>
@@ -54,15 +36,17 @@
 </template>
 
 <script setup lang="ts">
-import { Ref, coreactivemputed, reactive, ref } from 'vue'
-import { User, Lock, Warning } from '@element-plus/icons-vue'
+import { reactive, ref } from 'vue'
+import { User, Lock } from '@element-plus/icons-vue'
 import useUserStore from '@/store/modules/user'
 import { useRouter } from 'vue-router'
-import { ElNotification } from 'element-plus'
+import ElNotification from 'element-plus/lib/components/notification/index.js'
 const rules = {
   username: [
     {
-      trigger: 'change',
+      required: true,
+      trigger: 'blur',
+      message: '用户名不能为空'
       // validator: validatorUsername,
     },
   ],
@@ -87,9 +71,13 @@ const loginForm = reactive({
   verifyCode: '1234',
 })
 const loading = ref<Boolean>(false)
+// 获取el-form
+let loginForms = ref();
 let useStore = useUserStore()
 
 const login = async () => {
+  // 保证全部表单项全部通过再发请求
+  await loginForms.value.validate();
   try {
     // 保证登录成功
     loading.value = true
@@ -112,6 +100,10 @@ const login = async () => {
     })
   }
 }
+
+
+
+
 </script>
 
 <style lang="scss" scoped>

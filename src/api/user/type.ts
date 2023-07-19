@@ -1,3 +1,10 @@
+/*
+ * @Author: ZhouHao
+ * @Date: 2023-07-08 21:17:27
+ * @LastEditors: ZhouHao
+ * @LastEditTime: 2023-07-19 21:34:29
+ * @Descripttion: 
+ */
 // 登录接口需要携带的参数的ts类型
 
 export interface loginForm {
@@ -6,7 +13,8 @@ export interface loginForm {
 }
 
 interface dataType {
-  token: string
+  token?: string
+  message?: string
 }
 
 //登录接口返回的数据类型
