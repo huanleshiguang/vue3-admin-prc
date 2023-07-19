@@ -2,8 +2,8 @@
  * @Description: Stay hungry，Stay foolish
  * @Author: Huccct
  * @Date: 2023-05-18 12:11:32
- * @LastEditors: Huccct
- * @LastEditTime: 2023-05-23 14:53:42
+ * @LastEditors: ZhouHao
+ * @LastEditTime: 2023-07-19 22:45:49
  */
 // 二次封装axios
 import axios from 'axios'
@@ -37,6 +37,8 @@ request.interceptors.request.use(
 
 request.interceptors.response.use(
   (response) => {
+    console.log(response,'response');
+    
     if (response.status === 200) {
       return Promise.resolve(response.data)
     } else {

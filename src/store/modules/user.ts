@@ -2,7 +2,7 @@
  * @Author: ZhouHao
  * @Date: 2023-07-14 22:33:32
  * @LastEditors: ZhouHao
- * @LastEditTime: 2023-07-19 21:45:23
+ * @LastEditTime: 2023-07-19 22:49:05
  * @Descripttion:
  */
 // 创建用户相关的小仓库
@@ -33,8 +33,7 @@ let useUserStore = defineStore('User', {
       if (result.code === 200) {
         // 成功了，通过pinia仓库存储一下token
         // 由于pinia|vuex存储数据其实利用js对象
-        this.token = result.data.token as string
-        // 本地存储持久化存储一份\
+        this.token = result.data.token as string | null
         SET_TOKEN(result.data.token as string)
         // 这样可以保证当前async(userLogin)函数返回一个成功的Promise
         return 'ok' // 返回一个成功的promise
