@@ -3,7 +3,7 @@
  * @Date: 2023-07-08 21:17:27
  * @LastEditors: ZhouHao
  * @LastEditTime: 2023-07-19 21:34:29
- * @Descripttion: 
+ * @Descripttion:
  */
 // 登录接口需要携带的参数的ts类型
 

@@ -7,5 +7,5 @@
  */
 
 export interface UserState {
-  token: string|null
+  token: string | null
 }
