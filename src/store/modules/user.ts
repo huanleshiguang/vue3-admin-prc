@@ -1,8 +1,8 @@
 /*
  * @Author: ZhouHao
  * @Date: 2023-07-14 22:33:32
- * @LastEditors: ZhouHao
- * @LastEditTime: 2023-07-19 22:49:05
+ * @LastEditors: ZhouHao Joehall@foxmail.com
+ * @LastEditTime: 2023-08-05 20:23:52
  * @Descripttion:
  */
 // 创建用户相关的小仓库
@@ -48,4 +48,4 @@ let useUserStore = defineStore('User', {
 
 // 对外暴露获取小仓库的方法
 
-export default useUserStore
+export default useUserStore;
