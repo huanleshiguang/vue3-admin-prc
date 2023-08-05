@@ -37,8 +37,8 @@ request.interceptors.request.use(
 
 request.interceptors.response.use(
   (response) => {
-    console.log(response,'response');
-    
+    console.log(response, 'response')
+
     if (response.status === 200) {
       return Promise.resolve(response.data)
     } else {

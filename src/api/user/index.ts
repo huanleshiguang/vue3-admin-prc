@@ -11,8 +11,12 @@ enum API {
 
 // 对外暴露请求函数
 // 登录接口方法
-export const reqLogin =async (data: loginForm) =>
- await request<any, loginResponseData>({ url: '/user/login', method: 'post', data })
+export const reqLogin = async (data: loginForm) =>
+  await request<any, loginResponseData>({
+    url: '/user/login',
+    method: 'post',
+    data,
+  })
 
 //获取用户信息接口方法
 export const reqUserInfo = () =>

@@ -48,4 +48,4 @@ let useUserStore = defineStore('User', {
 
 // 对外暴露获取小仓库的方法
 
-export default useUserStore;
+export default useUserStore
