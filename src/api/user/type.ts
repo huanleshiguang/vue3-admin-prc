@@ -24,7 +24,7 @@ export interface loginResponseData {
 }
 
 interface userInfo {
-  userId: number;
+  userId: number
   avatar: string
   username: string
   password: string
