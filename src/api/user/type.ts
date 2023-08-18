@@ -1,8 +1,8 @@
 /*
  * @Author: ZhouHao
  * @Date: 2023-07-08 21:17:27
- * @LastEditors: ZhouHao
- * @LastEditTime: 2023-07-19 21:34:29
+ * @LastEditors: ZhouHao Joehall@foxmail.com
+ * @LastEditTime: 2023-08-18 22:27:09
  * @Descripttion:
  */
 // 登录接口需要携带的参数的ts类型
@@ -24,7 +24,7 @@ export interface loginResponseData {
 }
 
 interface userInfo {
-  userId: number
+  userId: number;
   avatar: string
   username: string
   password: string
